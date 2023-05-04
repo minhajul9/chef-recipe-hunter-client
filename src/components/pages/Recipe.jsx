@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Recipe = () => {
 
+    const notify = () => toast.success('Added to Favorites');
+
     const recipe = useLoaderData();
-    console.log('recipe', recipe);
+    // console.log('recipe', recipe);
+    const [favorite, setFavorite] = useState(false)
 
     return (
         <div>
@@ -37,7 +41,16 @@ const Recipe = () => {
                 </div>
                 
             </div>
+
+            <div className='text-center my-24'>
+                <button onClick={()=> {
+                    setFavorite(true)
+                    notify()
+                    }} className='btn btn-primary' disabled={favorite}>Add to Favorite</button>
+            </div>
+            <Toaster />
         </div>
+
     );
 };
 
