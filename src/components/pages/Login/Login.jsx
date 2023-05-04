@@ -7,7 +7,7 @@ const Login = () => {
     const [error, setError] = useState('')
 
     const navigate = useNavigate()
-    const {signIn} = useContext(AuthContext)
+    const {signIn, googleLogin, githubLogin} = useContext(AuthContext)
 
     const handleSignIn = (event) =>{
         event.preventDefault();
@@ -22,6 +22,26 @@ const Login = () => {
             navigate('/')
         })
         .catch(error => setError(error.message))
+    }
+
+    const handleGoogleLogin = () =>{
+        googleLogin()
+        .then(result => {
+            console.log(result.user);
+            navigate('/')
+        })
+        .catch(error => setError(error.message))
+
+    }
+
+    const handleGithubLogin = () =>{
+        githubLogin()
+        .then(result => {
+            console.log(result.user);
+            navigate('/')
+        })
+        .catch(error => setError(error.message))
+
     }
 
     return (
@@ -46,8 +66,8 @@ const Login = () => {
                     <p className='text-error'>{error}</p>
 
                     <p className='my-4'>New here? <Link to='/register' className='link link-primary'>create new account</Link></p>
-                    <button className="btn btn-outline w-full my-4">Continue with Google</button> <br />
-                    <button className="btn btn-outline w-full my-4">Continue with Github</button>
+                    <button onClick={handleGoogleLogin} className="btn btn-outline w-full my-4">Continue with Google</button> <br />
+                    <button onClick={handleGithubLogin} className="btn btn-outline w-full my-4">Continue with Github</button>
                 </form>
 
             </div>
