@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/chefs')
+        loader: () => fetch('https://chef-recipe-hunter-server-minhajul9.vercel.app/chefs')
       },
       {
         path: 'login',
@@ -39,15 +39,15 @@ const router = createBrowserRouter([
       {
         path: 'chef/:id',
         element: <Chef></Chef>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-minhajul9.vercel.app/chefs/${params.id}`)
       },
       {
         path: 'recipe/:name',
         element: <PrivateRoute><Recipe></Recipe></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/recipe/${params.name}`)
+        loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-minhajul9.vercel.app/recipe/${params.name}`)
       }
     ],
-    errorElement:<ErrorPage></ErrorPage>
+    errorElement: <ErrorPage></ErrorPage>
   }
 ])
 

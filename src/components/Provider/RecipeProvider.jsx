@@ -8,7 +8,7 @@ const RecipeProvider = ({ children }) => {
     const [recipes, setRecipes] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/recipe')
+        fetch('https://chef-recipe-hunter-server-minhajul9.vercel.app/recipe')
             .then(res => res.json())
             .then(data => setRecipes(data))
     }, [])
