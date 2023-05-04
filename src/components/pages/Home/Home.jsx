@@ -1,7 +1,8 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useContext } from 'react';
 import './Home.css'
 import Marquee from "react-fast-marquee";
-import { Form, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { RecipesContext } from '../../Provider/RecipeProvider';
 
 const Home = () => {
@@ -50,7 +51,7 @@ const Home = () => {
                                     <p><span className='font-semibold'>Experience:</span>  {chef.years_of_experience} years</p>
                                     <p><span className='font-semibold'>Number of Recipes:</span>  {chef.recipes.length}</p>
                                     <div className="card-actions">
-                                        <button className="btn btn-primary">View Recipes </button>
+                                        <Link to={`/chef/${chef.id}`}><button className="btn btn-primary">View Recipes </button></Link>
                                     </div>
                                 </div>
                             </div>

@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/react.svg'
 import { AuthContext } from '../Provider/AuthProvider';
+import {FaUserCircle} from 'react-icons/fa'
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext)
+    // console.log(user);
     
     const handleLogout = () =>{
         logOut()
@@ -30,7 +32,8 @@ const Navbar = () => {
                 {
                     user ?
                         <>
-                            <span className='mx-4'>{user.displayName || user.email}</span>
+                            {user.photoURL? <img title={user.displayName || user.email} className='h-8 w-8 rounded-full mr-6' src={user.photoURL} /> : <FaUserCircle title={user.displayName || user.email} className='h-8 w-8 rounded-full mr-6' />}
+                            
                             <button onClick={handleLogout} className="btn btn-primary">Log Out</button>
                         </>
                         :
