@@ -2,11 +2,12 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import {FaGoogle, FaGithub} from 'react-icons/fa'
 
 const Login = () => {
     const [error, setError] = useState('');
     const location = useLocation()
-    console.log(location.state.from.pathname);
+    // console.log(location.state.from.pathname);
 
     const navigate = useNavigate()
     const {signIn, googleLogin, githubLogin} = useContext(AuthContext)
@@ -68,8 +69,8 @@ const Login = () => {
                     <p className='text-error'>{error}</p>
 
                     <p className='my-4'>New here? <Link to='/register' className='link link-primary'>create new account</Link></p>
-                    <button onClick={handleGoogleLogin} className="btn btn-outline w-full my-4">Continue with Google</button> <br />
-                    <button onClick={handleGithubLogin} className="btn btn-outline w-full my-4">Continue with Github</button>
+                    <button onClick={handleGoogleLogin} className="btn btn-outline w-full my-4"><FaGoogle className='mx-2' /> Continue with Google</button> <br />
+                    <button onClick={handleGithubLogin} className="btn btn-outline w-full my-4"><FaGithub className='mx-2' /> Continue with Github</button>
                 </form>
 
             </div>

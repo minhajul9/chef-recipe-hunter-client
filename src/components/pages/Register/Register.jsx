@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import {FaGoogle, FaGithub} from 'react-icons/fa'
 
 const Register = () => {
 
     const [error, setError] = useState('')
 
     const navigate = useNavigate()
-    const {createUser} = useContext(AuthContext)
+    const {createUser, githubLogin, googleLogin} = useContext(AuthContext)
 
     const handleCreateUser = event => {
         event.preventDefault();
@@ -31,6 +32,26 @@ const Register = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate('/')
+        })
+        .catch(error => setError(error.message))
+
+    }
+
+    const handleGoogleLogin = () =>{
+        googleLogin()
+        .then(result => {
+            console.log(result.user);
+            navigate('/')
+        })
+        .catch(error => setError(error.message))
+
+    }
+
+    const handleGithubLogin = () =>{
+        githubLogin()
+        .then(result => {
+            console.log(result.user);
             navigate('/')
         })
         .catch(error => setError(error.message))
@@ -70,8 +91,8 @@ const Register = () => {
                     </div>
                     <p className='text-error'>{error}</p>
                     <p className='my-4'>Already have an account? <Link to='/login' className='link link-primary'>login</Link></p>
-                    <button className="btn btn-outline w-full my-4">Continue with Google</button> <br />
-                    <button className="btn btn-outline w-full my-4">Continue with Github</button>
+                    <button onClick={handleGoogleLogin} className="btn btn-outline w-full my-4"><FaGoogle className='mx-2' /> Continue with Google</button> <br />
+                    <button onClick={handleGithubLogin} className="btn btn-outline w-full my-4"><FaGithub className='mx-2' /> Continue with Github</button>
                 </form>
 
                 
