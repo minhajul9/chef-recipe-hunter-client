@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './Home.css'
 import Marquee from "react-fast-marquee";
-import { useLoaderData } from 'react-router-dom';
+import { Form, useLoaderData } from 'react-router-dom';
 import { RecipesContext } from '../../Provider/RecipeProvider';
 
 const Home = () => {
@@ -14,6 +14,8 @@ const Home = () => {
 
     return (
         <div>
+
+            {/* banner */}
             <div className='banner'>
                 <div className='banner2 '>
                     <div className='px-12 py-20 text-white flex flex-col justify-center text-center'>
@@ -33,6 +35,7 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* chefs */}
             <div>
                 <h1 className='text-5xl text-center font-bold my-16'>Popular Chefs</h1>
                 <div className='flex' >
@@ -56,9 +59,10 @@ const Home = () => {
                 </div>
             </div>
 
+            {/* recipes */}
             <div>
-            <h1 className='text-5xl text-center font-bold my-16'>Some Popular Recipes</h1>
-                <Marquee  speed={100} pauseOnHover>
+                <h1 className='text-5xl text-center font-bold my-16'>Some Popular Recipes</h1>
+                <Marquee speed={100} pauseOnHover>
                     {
                         recipes.map(recipe => <div
                             key={recipe.id}
@@ -75,6 +79,48 @@ const Home = () => {
                     }
                 </Marquee>
             </div>
+
+            {/* favourites */}
+            <div className='grid grid-cols-2 items-center my-24'>
+                <div className='grid grid-cols-2 gap-4'>
+                    <img className='w-72 h-64 mx-10 rounded-lg' src="https://images.unsplash.com/photo-1593661982469-ff1e1bbbc88d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80" alt="" />
+
+                    <img className='w-72 h-64 mx-10 rounded-lg' src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1076&q=80" alt="" />
+                    <img className='w-72 h-64 mx-10 rounded-lg ' src="https://images.unsplash.com/photo-1610514000782-b205b70fbe71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="" />
+                    <img className='w-72 h-64 mx-10 rounded-lg' src="https://images.unsplash.com/photo-1652954008429-ce394eacbd7f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="" />
+                </div>
+                <div>
+                    <form action="/submit-favorite-dish" method="POST" className="max-w-lg mx-auto">
+                        <div className="mb-4">
+                            <label className="block font-medium text-gray-700"> What's the name of your favorite dish?</label>
+                            <input type="text" id="dish-name" name="dish_name" required className="mt-1 px-4 py-2 w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none" />
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="block font-medium text-gray-700">What are the main ingredients in the dish?</label>
+                            <textarea id="ingredients" name="dish_ingredients" required className="mt-1 px-4 py-2 w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none"></textarea>
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="block font-medium text-gray-700">How is the dish prepared?</label>
+                            <textarea id="preparation" name="dish_preparation" required className="mt-1 px-4 py-2 w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none"></textarea>
+                        </div>
+
+                        <div className="mb-4">
+                            <label className="block font-medium text-gray-700">Do you have a photo of the dish?</label>
+                            <input type="file" id="photo" name="dish_photo" className="mt-1" />
+                        </div>
+
+                        <div className="text-center">
+                            <button type="submit" className="inline-block bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+
+
         </div>
     );
 };
