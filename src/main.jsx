@@ -10,6 +10,7 @@ import ErrorPage from './components/pages/ErrorPage/ErrorPage.jsx'
 import Login from './components/pages/Login/Login.jsx'
 import Register from './components/pages/Register/Register'
 import Chef from './components/pages/Chef'
+import Recipe from './components/pages/Recipe'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
         path: 'chef/:id',
         element: <Chef></Chef>,
         loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+      },
+      {
+        path: 'recipe/:name',
+        element: <Recipe></Recipe>,
+        loader: ({params}) => fetch(`http://localhost:5000/recipe/${params.name}`)
       }
     ],
     errorElement:<ErrorPage></ErrorPage>

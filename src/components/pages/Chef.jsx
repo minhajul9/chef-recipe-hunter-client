@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import {FaThumbsUp} from 'react-icons/fa'
 
 const Chef = () => {
@@ -21,8 +21,20 @@ const Chef = () => {
                 </div>
             </div>
 
-            <div>
-                
+            <div className='flex justify-around my-24 gap-4'>
+                {
+                    chef.recipes.map( recipe => <div
+                    key={recipe}
+                     className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card-body">
+                      <h2 className="card-title">{recipe.split('_').join(' ')}</h2>
+                      <p>One of {chef.name}'s best item</p>
+                      <div className="card-actions justify-end">
+                        <Link to={`/recipe/${recipe}`}><button className="btn">View Recipe</button></Link>
+                      </div>
+                    </div>
+                  </div>)
+                }
             </div>
 
             

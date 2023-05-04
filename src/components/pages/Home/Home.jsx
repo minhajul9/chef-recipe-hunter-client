@@ -73,7 +73,7 @@ const Home = () => {
                                 <h2 className="card-title">{recipe.name.split('_').join(' ')}</h2>
                                 <p>{recipe.location}</p>
                                 <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">View Recipe</button>
+                                    <Link to={`/recipe/${recipe.name}`}><button className="btn btn-primary">View Recipe</button></Link>
                                 </div>
                             </div>
                         </div>)
