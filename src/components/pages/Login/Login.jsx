@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-        <div className="flex flex-col my-32 justify-center items-center">
-            <div className="max-w-md w-full mx-auto shadow-lg p-12 rounded-lg">
+        <div className="flex flex-col my-32 justify-center items-center ">
+            <div className="max-w-md w-full mx-auto shadow-lg p-12 rounded-lg bg-white">
                 <div className="mb-4">
                     <h1 className="text-3xl font-bold text-center text-gray-900">Login</h1>
                 </div>
                 <form className="bg-white p-6 rounded-lg ">
                     <div className="mb-4">
                         <label className='mr-11'>Email</label>
-                        <input className='p-2 border rounded-md' type="email" name="email" id="email"  placeholder='Enter your email' required />
+                        <input className='p-2 border rounded-md' type="email" name="email" id="email" placeholder='Enter your email' required />
                     </div>
                     <div className="mb-4">
                         <label className='mr-4'>Password</label>
@@ -23,7 +23,10 @@ const Login = () => {
                     </div>
 
                     <p className='my-4'>New here? <Link to='/register' className='link link-primary'>create new account</Link></p>
+                    <button className="btn btn-outline w-full my-4">Continue with Google</button> <br />
+                    <button className="btn btn-outline w-full my-4">Continue with Github</button>
                 </form>
+
             </div>
         </div>
     );

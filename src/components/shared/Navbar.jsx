@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/react.svg'
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
+
+    const {user} = useContext(AuthContext)
+    console.log(user);
+
     return (
         <div className="navbar bg-base-100 w-4/5 mx-auto">
             <div className="navbar-start">
