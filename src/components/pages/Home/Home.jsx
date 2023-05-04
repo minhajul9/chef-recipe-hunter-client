@@ -82,7 +82,7 @@ const Home = () => {
 
             {/* favourites */}
             <div className='grid grid-cols-2 items-center my-24'>
-                <div className='grid grid-cols-2 gap-4'>
+                <div className='grid grid-cols-2 gap-8'>
                     <img className='w-72 h-64 mx-10 rounded-lg' src="https://images.unsplash.com/photo-1593661982469-ff1e1bbbc88d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80" alt="" />
 
                     <img className='w-72 h-64 mx-10 rounded-lg' src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1076&q=80" alt="" />
@@ -92,22 +92,22 @@ const Home = () => {
                 <div>
                     <form action="/submit-favorite-dish" method="POST" className="max-w-lg mx-auto">
                         <div className="mb-4">
-                            <label className="block font-medium text-gray-700"> What's the name of your favorite dish?</label>
-                            <input type="text" id="dish-name" name="dish_name" required className="mt-1 px-4 py-2 w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none" />
+                            <label className="block font-medium text-gray-500"> What's the name of your favorite dish?</label>
+                            <input type="text" id="dish-name" name="dish_name" required className="mt-1 px-4 py-2 w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none border" />
                         </div>
 
                         <div className="mb-4">
-                            <label className="block font-medium text-gray-700">What are the main ingredients in the dish?</label>
-                            <textarea id="ingredients" name="dish_ingredients" required className="mt-1 px-4 py-2 w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none"></textarea>
+                            <label className="block font-medium text-gray-500">What are the main ingredients in the dish?</label>
+                            <textarea id="ingredients" name="dish_ingredients" required className="mt-1 px-4 py-2 w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none border"></textarea>
                         </div>
 
                         <div className="mb-4">
-                            <label className="block font-medium text-gray-700">How is the dish prepared?</label>
-                            <textarea id="preparation" name="dish_preparation" required className="mt-1 px-4 py-2 w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none"></textarea>
+                            <label className="block font-medium text-gray-500">How is the dish prepared?</label>
+                            <textarea id="preparation" name="dish_preparation" required className="mt-1 px-4 py-2 w-full border-gray-300 rounded-md focus:border-blue-500 focus:ring-blue-500 focus:outline-none border"></textarea>
                         </div>
 
                         <div className="mb-4">
-                            <label className="block font-medium text-gray-700">Do you have a photo of the dish?</label>
+                            <label className="block font-medium text-gray-500">Do you have a photo of the dish?</label>
                             <input type="file" id="photo" name="dish_photo" className="mt-1" />
                         </div>
 
