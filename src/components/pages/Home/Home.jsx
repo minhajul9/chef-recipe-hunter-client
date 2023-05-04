@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Home.css'
 import Marquee from "react-fast-marquee";
 import { useLoaderData } from 'react-router-dom';
+import { RecipesContext } from '../../Provider/RecipeProvider';
 
 const Home = () => {
 
     const chefs = useLoaderData()
+
+    const recipes = useContext(RecipesContext)
+
 
 
     return (
@@ -30,10 +34,10 @@ const Home = () => {
             </div>
 
             <div>
-                 <h1 className='text-5xl text-center font-bold my-16'>Popular Chefs</h1>
-                <Marquee>
+                <h1 className='text-5xl text-center font-bold my-16'>Popular Chefs</h1>
+                <div className='flex' >
                     {
-                        chefs.map(chef => 
+                        chefs.map(chef =>
                             <div key={chef.id} className="card w-96 bg-base-100 shadow-xl m-10">
                                 <figure className="px-10 pt-10">
                                     <img src={chef.photo} alt="Shoes" className="rounded-xl w-96" />
@@ -48,6 +52,26 @@ const Home = () => {
                                 </div>
                             </div>
                         )
+                    }
+                </div>
+            </div>
+
+            <div>
+            <h1 className='text-5xl text-center font-bold my-16'>Some Popular Recipes</h1>
+                <Marquee  speed={100} pauseOnHover>
+                    {
+                        recipes.map(recipe => <div
+                            key={recipe.id}
+                            className="card card-compact w-96 bg-base-100 shadow-xl m-10">
+                            <figure ><img className='h-96' src={recipe.photo} alt="Shoes" /></figure>
+                            <div className="card-body">
+                                <h2 className="card-title">{recipe.name.split('_').join(' ')}</h2>
+                                <p>{recipe.location}</p>
+                                <div className="card-actions justify-end">
+                                    <button className="btn btn-primary">View Recipe</button>
+                                </div>
+                            </div>
+                        </div>)
                     }
                 </Marquee>
             </div>

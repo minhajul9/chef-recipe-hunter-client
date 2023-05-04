@@ -5,11 +5,14 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Main from './components/Layout/Main.jsx'
 import Home from './components/pages/Home/Home.jsx'
+import RecipeProvider from './components/Provider/RecipeProvider.jsx'
+import ErrorPage from './components/pages/ErrorPage/ErrorPage.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -22,6 +25,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <RecipeProvider><RouterProvider router={router}></RouterProvider></RecipeProvider>
   </React.StrictMode>,
 )
