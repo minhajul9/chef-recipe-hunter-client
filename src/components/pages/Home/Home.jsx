@@ -4,6 +4,7 @@ import './Home.css'
 import Marquee from "react-fast-marquee";
 import { Link, useLoaderData } from 'react-router-dom';
 import { RecipesContext } from '../../Provider/RecipeProvider';
+import LazyLoad from 'react-lazy-load';
 
 const Home = () => {
 
@@ -39,13 +40,13 @@ const Home = () => {
             {/* chefs */}
             <div>
                 <h1 className='text-5xl text-center font-bold my-16'>Popular Chefs</h1>
-                <div className='flex flex-wrap' >
+                <div className='flex justify-around flex-wrap' >
                     {
                         chefs.map(chef =>
                             <div key={chef.id} className="card w-96 bg-base-100 shadow-xl m-10">
-                                <figure className="px-10 pt-10">
+                                <LazyLoad className="px-10 pt-10" width={384} offset={300}>
                                     <img src={chef.photo} alt="Shoes" className="rounded-xl w-96" />
-                                </figure>
+                                </LazyLoad>
                                 <div className="card-body items-center text-center">
                                     <h2 className="card-title">{chef.name}</h2>
                                     <p><span className='font-semibold'>Experience:</span>  {chef.years_of_experience} years</p>
