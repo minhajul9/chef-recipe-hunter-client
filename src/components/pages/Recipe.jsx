@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import { Rating } from '@smastrom/react-rating';
+
+import '@smastrom/react-rating/style.css'
 
 const Recipe = () => {
 
@@ -18,13 +21,21 @@ const Recipe = () => {
 
             <div className='w-4/6 mx-auto my-16'>
                 <h1 className='text-7xl text-center my-10 font-bold'>{recipe.name.split('_').join(' ')}</h1>
-                <h2 className='text-5xl font-semibold my-8'>Recipe</h2>
+                <div className='flex justify-between'>
+                    <h2 className='text-5xl font-semibold my-8'>Recipe</h2>
+                    <Rating
+                        style={{ maxWidth: 180 }}
+                        value={recipe.rating}
+                        readOnly
+                    />
+
+                </div>
                 <div>
                     <h3 className='text-3xl font-semibold my-4'>Ingredients: </h3>
                     <ol className='w-1/2 mx-auto list-decimal'>
                         {
-                            recipe.recipe.ingredients.map( ing => <li 
-                            key={ing}
+                            recipe.recipe.ingredients.map(ing => <li
+                                key={ing}
                             ><span className='mx-4'>{ing}</span></li>)
                         }
                     </ol>
@@ -33,20 +44,20 @@ const Recipe = () => {
                     <h3 className='text-3xl font-semibold my-4'>Process: </h3>
                     <ol className='w-1/2 mx-auto list-disc'>
                         {
-                            recipe.recipe.steps.map( ing => <li 
-                            key={ing}
+                            recipe.recipe.steps.map(ing => <li
+                                key={ing}
                             ><span className='mx-4'>{ing}</span></li>)
                         }
                     </ol>
                 </div>
-                
+
             </div>
 
             <div className='text-center my-24'>
-                <button onClick={()=> {
+                <button onClick={() => {
                     setFavorite(true)
                     notify()
-                    }} className='btn btn-primary' disabled={favorite}>Add to Favorite</button>
+                }} className='btn btn-primary' disabled={favorite}>Add to Favorite</button>
             </div>
             <Toaster />
         </div>
