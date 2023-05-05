@@ -18,7 +18,8 @@ const Footer = () => {
                             </text>
 
                         </svg>
-                        <p>Khana Khazana<br />Presenting some delicious Bangladeshi food </p>
+                        <p className='text-2xl font-semibold'>Khana Khazana </p>
+                        <p> Presenting some delicious Bangladeshi food </p>
                     </div>
                     <div>
                         <span className="footer-title">Social</span>

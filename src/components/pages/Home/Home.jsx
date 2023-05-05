@@ -62,7 +62,7 @@ const Home = () => {
 
             {/* recipes */}
             <div>
-                <h1 className='text-5xl text-center font-bold my-16'>Some Popular Recipes</h1>
+                <h1 className='text-5xl text-center font-bold my-16'>Some Popular Foods of Bangladesh</h1>
                 <Marquee speed={100} pauseOnHover>
                     {
                         recipes.map(recipe => <div
@@ -82,13 +82,13 @@ const Home = () => {
             </div>
 
             {/* favourites */}
-            <div className='grid grid-cols-2 items-center my-24'>
-                <div className='grid grid-cols-2 gap-8'>
-                    <img className='w-72 h-64 mx-10 rounded-lg' src="https://images.unsplash.com/photo-1593661982469-ff1e1bbbc88d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80" alt="" />
+            <div className='grid md:grid-cols-2 items-center md:my-24'>
+                <div className='grid grid-cols-2 md:gap-8 gap-4'>
+                    <img className='w-72 h-64 md:mx-10  rounded-lg' src="https://images.unsplash.com/photo-1593661982469-ff1e1bbbc88d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1467&q=80" alt="" />
 
-                    <img className='w-72 h-64 mx-10 rounded-lg' src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1076&q=80" alt="" />
-                    <img className='w-72 h-64 mx-10 rounded-lg ' src="https://images.unsplash.com/photo-1610514000782-b205b70fbe71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="" />
-                    <img className='w-72 h-64 mx-10 rounded-lg' src="https://images.unsplash.com/photo-1652954008429-ce394eacbd7f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="" />
+                    <img className='w-72 h-64 md:mx-10  rounded-lg' src="https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1076&q=80" alt="" />
+                    <img className='w-72 h-64 md:mx-10  rounded-lg ' src="https://images.unsplash.com/photo-1610514000782-b205b70fbe71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" alt="" />
+                    <img className='w-72 h-64 md:mx-10  rounded-lg' src="https://images.unsplash.com/photo-1652954008429-ce394eacbd7f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="" />
                 </div>
                 <div>
                     <form action="/submit-favorite-dish" method="POST" className="max-w-lg mx-auto">
