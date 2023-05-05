@@ -10,6 +10,7 @@ const Login = () => {
     // console.log(location.state.from.pathname);
 
     const navigate = useNavigate()
+    const from = location.state?.from?.pathname;
     const {signIn, googleLogin, githubLogin} = useContext(AuthContext)
 
     const handleSignIn = (event) =>{
@@ -18,11 +19,12 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        
 
         signIn(email, password)
         .then(result => {
             const loggedUser = result.user;
-            navigate(location.state?.from?.pathname|| '/')
+            navigate(from || '/')
         })
         .catch(error => setError(error.message))
     }
@@ -31,7 +33,7 @@ const Login = () => {
         googleLogin()
         .then(result => {
             console.log(result.user);
-            navigate('/')
+            navigate(from || '/')
         })
         .catch(error => setError(error.message))
 
@@ -41,7 +43,7 @@ const Login = () => {
         githubLogin()
         .then(result => {
             console.log(result.user);
-            navigate('/')
+            navigate(from || '/')
         })
         .catch(error => setError(error.message))
 

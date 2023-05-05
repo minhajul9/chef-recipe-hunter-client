@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/react.svg'
 import { AuthContext } from '../Provider/AuthProvider';
-import {FaUserCircle} from 'react-icons/fa'
+import { FaUserCircle } from 'react-icons/fa'
 
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext)
     // console.log(user);
-    
-    const handleLogout = () =>{
+
+    const handleLogout = () => {
         logOut()
-        .then(result => {})
-        .catch(error => console.log(error))
+            .then(result => { })
+            .catch(error => console.log(error))
     }
 
     return (
@@ -23,21 +23,24 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/blog'>Blog</Link></li>
-                    
+                    <li><NavLink to='/'>Home</NavLink></li>
+                    <li><NavLink to='/blog'>Blog</NavLink></li>
+
                 </ul>
             </div>
             <div className="navbar-end">
                 {
                     user ?
                         <>
-                            {user.photoURL? <img title={user.displayName || user.email} className='h-8 w-8 rounded-full mr-6' src={user.photoURL} /> : <FaUserCircle title={user.displayName || user.email} className='h-8 w-8 rounded-full mr-6' />}
-                            
+                            {user.photoURL ? <img title={user.displayName || user.email} className='h-8 w-8 rounded-full mr-6' src={user.photoURL} /> : <FaUserCircle title={user.displayName || user.email} className='h-8 w-8 rounded-full mr-6' />}
+
                             <button onClick={handleLogout} className="btn btn-primary">Log Out</button>
                         </>
                         :
-                        <Link to='/login'><button className="btn btn-primary">Login</button></Link>
+                        <>
+                            <NavLink to='/register'><button className="btn me-2">Register</button></NavLink>
+                            <NavLink to='/login'><button className="btn ">Login</button></NavLink>
+                        </>
                 }
             </div>
         </div>
