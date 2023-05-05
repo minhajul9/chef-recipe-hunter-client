@@ -19,7 +19,7 @@ const Home = () => {
             {/* banner */}
             <div className='banner'>
                 <div className='banner2 '>
-                    <div className='px-12 py-20 text-white flex flex-col justify-center text-center'>
+                    <div className='px-12 md:py-20 text-white flex flex-col justify-center text-center'>
                         <h1 className='text-6xl font-bold '>Khana Khazana</h1>
                         <p className='mt-4'>Foods that are asset of Bangladesh</p>
                     </div>
@@ -39,7 +39,7 @@ const Home = () => {
             {/* chefs */}
             <div>
                 <h1 className='text-5xl text-center font-bold my-16'>Popular Chefs</h1>
-                <div className='flex' >
+                <div className='flex flex-wrap' >
                     {
                         chefs.map(chef =>
                             <div key={chef.id} className="card w-96 bg-base-100 shadow-xl m-10">
