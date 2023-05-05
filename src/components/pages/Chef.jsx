@@ -24,13 +24,13 @@ const Chef = () => {
             <div className='flex justify-around my-24 gap-4'>
                 {
                     chef.recipes.map( recipe => <div
-                    key={recipe}
+                    key={recipe.id}
                      className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
-                      <h2 className="card-title">{recipe.split('_').join(' ')}</h2>
+                      <h2 className="card-title">{recipe.name.split('_').join(' ')}</h2>
                       <p>One of {chef.name}'s best item</p>
                       <div className="card-actions justify-end">
-                        <Link to={`/recipe/${recipe}`}><button className="btn">View Recipe</button></Link>
+                        <Link to={`/chef/${chef.id}/${recipe.id}`}><button className="btn">View Recipe</button></Link>
                       </div>
                     </div>
                   </div>)
