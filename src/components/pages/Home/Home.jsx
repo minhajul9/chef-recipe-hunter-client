@@ -44,6 +44,7 @@ const Home = () => {
                     {
                         chefs.map(chef =>
                             <div key={chef.id} className="card w-96 bg-base-100 shadow-xl m-10">
+                                {/* lazy load */}
                                 <LazyLoad className="px-10 pt-10" width={384} offset={300}>
                                     <img src={chef.photo} alt="Shoes" className="rounded-xl w-96" />
                                 </LazyLoad>

@@ -32,7 +32,7 @@ const Register = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
-            navigate('/')
+            navigate('/') // redirect to home page
         })
         .catch(error => setError(error.message))
 

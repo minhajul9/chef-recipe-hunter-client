@@ -10,7 +10,7 @@ const Login = () => {
     // console.log(location.state.from.pathname);
 
     const navigate = useNavigate()
-    const from = location.state?.from?.pathname;
+    const from = location.state?.from?.pathname; // use to navigate
     const {signIn, googleLogin, githubLogin} = useContext(AuthContext)
 
     const handleSignIn = (event) =>{
